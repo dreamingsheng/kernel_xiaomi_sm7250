@@ -147,8 +147,10 @@ main(){
         generate_flashable;
     elif [ $1 == "kernelonly" ]
     then
-        make_defconfig
-        build_kernel
+        save_defconfig;
+        make_defconfig;
+        build_kernel;
+        link_all_dtb_files;
     elif [ $1 == "all" ]
     then
         make_defconfig
